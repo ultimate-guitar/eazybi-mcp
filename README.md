@@ -47,19 +47,19 @@ Pick one of the install options below, then hand the binary to your MCP client.
 
 ```bash
 brew install uv     # one-time
-uv tool install --from git+https://github.com/Ximich/eazybi-mcp eazybi-mcp
+uv tool install --from git+https://github.com/ultimate-guitar/eazybi-mcp eazybi-mcp
 ```
 
 ### Install with `pipx`
 
 ```bash
-pipx install git+https://github.com/Ximich/eazybi-mcp
+pipx install git+https://github.com/ultimate-guitar/eazybi-mcp
 ```
 
 ### From source
 
 ```bash
-git clone https://github.com/Ximich/eazybi-mcp
+git clone https://github.com/ultimate-guitar/eazybi-mcp
 cd eazybi-mcp
 python3 -m venv .venv
 source .venv/bin/activate
@@ -105,7 +105,7 @@ Edit `claude_desktop_config.json`:
   "mcpServers": {
     "eazybi": {
       "command": "uvx",
-      "args": ["--from", "git+https://github.com/Ximich/eazybi-mcp", "eazybi-mcp"],
+      "args": ["--from", "git+https://github.com/ultimate-guitar/eazybi-mcp", "eazybi-mcp"],
       "env": {
         "EAZYBI_BASE_URL": "https://aod.eazybi.com",
         "EAZYBI_USER": "[email protected]",
