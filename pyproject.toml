@@ -1,0 +1,38 @@
+[project]
+name = "eazybi-mcp"
+version = "0.1.0"
+description = "Model Context Protocol server for eazyBI (Reports & Charts for Jira)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Maxim Chistyakov" }]
+keywords = ["mcp", "eazybi", "jira", "atlassian", "reports", "bi"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+  "mcp[cli]>=1.2.0",
+  "httpx>=0.27",
+  "pydantic>=2.6",
+]
+
+[project.scripts]
+eazybi-mcp = "eazybi_mcp.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/Ximich/eazybi-mcp"
+Issues = "https://github.com/Ximich/eazybi-mcp/issues"
+Repository = "https://github.com/Ximich/eazybi-mcp"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/eazybi_mcp"]
