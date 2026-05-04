@@ -18,9 +18,14 @@ eazyBI builds incredibly powerful Jira analytics, but its data lives behind an O
 
 ## What's stable vs experimental
 
-eazyBI publishes exactly **one** REST endpoint as part of its supported public API: the [Report Results Export API](https://docs.eazybi.com/eazybi/set-up-and-administer/customization/report-results-export-api). That is what `export_report` and `get_export_url` use, and on **eazyBI for Jira Cloud it is the only thing that accepts Basic auth** with an Atlassian API token — every other route is served behind Atlassian Connect JWT inside the eazyBI iframe.
+eazyBI publishes exactly **one** REST endpoint as part of its supported public API: the [Report Results Export API](https://docs.eazybi.com/eazybi/set-up-and-administer/customization/report-results-export-api). That is what `export_report` and `get_export_url` wrap. eazyBI Support has stated explicitly that [there is no REST API for listing or publishing reports / dashboards](https://community.eazybi.com/t/rest-apis-for-easybi-reports-or-dashboards/11655) — not on Cloud, not on Data Center, not on eazyBI.com.
 
-The remaining `list_*` / `get_*` tools call internal JSON routes that the eazyBI UI consumes (`/accounts.json`, `/accounts/{id}/cubes.json`, …). They work fine on Data Center / Private eazyBI but **return `{"supported": false}` on Atlassian Cloud** — that's expected, not a bug. Each experimental tool is marked `[experimental]` in its docstring.
+The remaining `list_*` / `get_*` tools probe **internal Rails JSON routes** (`/accounts.json`, `/accounts/{id}/cubes.json`, …) that the eazyBI UI itself consumes. They are **not** part of any documented contract:
+
+* on **Atlassian Cloud** these routes reject Basic auth — they always return `{"supported": false}` and you should not rely on them;
+* on **Data Center / Private eazyBI** they often happen to work (Jira's plugin framework gates everything with the same auth) but eazyBI Support recommends against treating them as a stable interface.
+
+So the realistic picture is: `export_report` is the rock-solid path; everything else is a "good luck" probe of UI internals. The export tool is enough for almost every reporting workflow — if you know `account_id` and `report_id`, you can run any saved report end-to-end.
 
 ## Tools
 
