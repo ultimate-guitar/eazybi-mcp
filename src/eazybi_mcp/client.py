@@ -75,7 +75,7 @@ class EazyBIClient:
             timeout=config.timeout,
             headers={
                 "Accept": "application/json",
-                "User-Agent": "eazybi-mcp/0.1 (+https://github.com/Ximich/eazybi-mcp)",
+                "User-Agent": "eazybi-mcp/0.1 (+https://github.com/ultimate-guitar/eazybi-mcp)",
             },
             follow_redirects=True,
         )
