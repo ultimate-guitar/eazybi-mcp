@@ -26,9 +26,9 @@ dependencies = [
 eazybi-mcp = "eazybi_mcp.__main__:main"
 
 [project.urls]
-Homepage = "https://github.com/Ximich/eazybi-mcp"
-Issues = "https://github.com/Ximich/eazybi-mcp/issues"
-Repository = "https://github.com/Ximich/eazybi-mcp"
+Homepage = "https://github.com/ultimate-guitar/eazybi-mcp"
+Issues = "https://github.com/ultimate-guitar/eazybi-mcp/issues"
+Repository = "https://github.com/ultimate-guitar/eazybi-mcp"
 
 [build-system]
 requires = ["hatchling"]
